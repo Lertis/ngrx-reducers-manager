@@ -1,0 +1,18 @@
+<h4>Book Shelf #{{name}}</h4>
+<ng-container *ngIf="authorsCount$ | async as num; else noAuthors">
+	<button (click)="addAuthor(num)">Add author</button>
+</ng-container>
+<ng-template #noAuthors>
+	<button (click)="addAuthor(0)">Add author</button>
+</ng-template>
+
+<h5>Authors:</h5>
+<div *ngFor="let author of authors$ | async">
+	<pre>{{author | json}}</pre>
+	<button (click)="saveAuthor(author)">
+		Save {{author.name}}
+	</button>
+</div>
+
+<h5>Books:</h5>
+<book *ngFor="let book of books$ | async" [book]="book"></book>
