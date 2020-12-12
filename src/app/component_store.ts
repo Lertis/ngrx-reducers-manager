@@ -79,13 +79,6 @@ export abstract class ComponentStore<T>
 		)
 	}
 
-	/* 	setValue(value: T) {
-			this.dispatch({
-				type: this.setValueActionType,
-				value
-			});
-		} */
-
 	dispatch(action: Action) {
 		this.store.dispatch(this.createLocalAction(action));
 	}
