@@ -4,7 +4,7 @@ import { MemoizedSelector, ReducerManager, ActionReducer, createFeatureSelector,
 import { EffectSources, Actions, OnIdentifyEffects, OnRunEffects, ofType } from "@ngrx/effects";
 import { takeUntil, filter } from "rxjs/operators";
 
-const COMPONENT_ID = 1;
+let COMPONENT_ID = 1;
 
 @Directive()
 export abstract class ComponentStore<T>
@@ -24,7 +24,7 @@ export abstract class ComponentStore<T>
 		reducer: ActionReducer<any, any>,
 		id = "" // the possibility to add your own id, for example the entity id
 	) {
-		this.name = `${this.constructor.name}__${id || COMPONENT_ID + 1}`;
+		this.name = `${this.constructor.name}__${id || COMPONENT_ID++}`;
 		this.initActionType = `[${this.name}] Init`;
 		this.destroyedActionType = `[${this.name}] Destroyed`;
 		this.setValueActionType = `[${this.name}] Set Value`;

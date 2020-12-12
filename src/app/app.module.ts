@@ -5,7 +5,7 @@ import { FormsModule } from "@angular/forms";
 import { EffectsModule } from "@ngrx/effects";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { AppComponent } from "./app.component";
-import { counterReducer } from "./store/reducers/first.reducer";
+
 import { BookShelfComponent } from "./components/book-shelf.component";
 import { BookComponent } from "./components/book.component";
 
@@ -30,7 +30,6 @@ import { BookComponent } from "./components/book.component";
 				strictActionTypeUniqueness: true,
 			}
 		}),
-		StoreModule.forFeature("count", counterReducer),
 		StoreDevtoolsModule.instrument({})
 	],
 	providers: [],
